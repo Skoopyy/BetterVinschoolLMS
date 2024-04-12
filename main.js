@@ -1,8 +1,11 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
+// @name:vn      Cải thiện LMS Vinschool
 // @namespace    http://tampermonkey.net/
-// @version      2024-04-12
+// @version      1.0
+// @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
+// @description:vn Cải thiện UI của hệ thống LMS Vinschool
 // @author       Skoopyy on Github
 // @match        https://online.vinschool.edu.vn/*
 // @match        https://lms.vinschool.edu.vn/courses/16327
