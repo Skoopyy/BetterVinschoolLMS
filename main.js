@@ -140,6 +140,10 @@
 
     function addTitlePrefix(prefix) {
         var pageTitle = document.title;
+        // check if on lms v2 to not have duplicate titles
+        if (pageTitle == "Vinschool LMS") {
+            pageTitle = "LMS v2"
+        }
         var newTitle = prefix + ' - ' + pageTitle;
         document.title = newTitle;
         console.log("Better VSC LMS | Changed webpage title to: " + newTitle);
