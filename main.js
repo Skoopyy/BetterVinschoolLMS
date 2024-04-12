@@ -1,41 +1,22 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
+// @name:vn      Cải thiện LMS Vinschool
 // @namespace    http://tampermonkey.net/
-// @version      1.2.3
+// @version      1.2.3 r1
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
-// @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
+// @downloadURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
+// @description:vn Cải thiện UI của hệ thống LMS Vinschool
 // @author       Skoopyy on Github
 // @match        https://online.vinschool.edu.vn/*
 // @match        https://lms.vinschool.edu.vn/courses/16327
 // @match        https://lms.vinschool.edu.vn/*
 // @icon         https://online.vinschool.edu.vn/logo1.svg
-// @grant        GM_addStyle
-// @grant        GM_getResourceText
-// @grant        unsafeWindow
+// @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
-
-    // Function to load external script
-    function loadScript(url) {
-        var script = document.createElement('script');
-        script.src = url;
-        document.head.appendChild(script);
-    }
-
-    // Function to load external style
-    function loadStyle(url) {
-        var style = document.createElement('link');
-        style.rel = 'stylesheet';
-        style.href = url;
-        document.head.appendChild(style);
-    }
-
-    // Load Material Components for the Web library
-    loadScript('https://unpkg.com/@material/linear-progress@5.3.0/dist/mdc.linearProgress.min.js');
-    loadStyle('https://unpkg.com/@material/linear-progress@5.3.0/dist/mdc.linearProgress.min.css');
 
     // Check if the current URL matches the specified pattern - URL
     function checkURL(pattern) {
@@ -55,60 +36,46 @@
     }
     // If login page, automatically login
     if (checkURL('https://online.vinschool.edu.vn/login')) {
-        // Create element for logging in overlay
-        var overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        overlay.style.zIndex = '9999';
-        overlay.style.display = 'none'; // Initially hide overlay
+    // Create element for logging in overlay
+    var overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'none'; // Initially hide overlay
 
-        // Create element for text
-        var textElement = document.createElement('p');
-        textElement.textContent = 'Logging in...';
-        textElement.style.color = '#fff';
-        textElement.style.fontSize = '24px';
-        textElement.style.position = 'absolute';
-        textElement.style.top = '50%';
-        textElement.style.left = '50%';
-        textElement.style.transform = 'translate(-50%, -50%)';
+    // Create element for text
+    var textElement = document.createElement('p');
+    textElement.textContent = 'Logging in...';
+    textElement.style.color = '#fff';
+    textElement.style.fontSize = '24px';
+    textElement.style.position = 'absolute';
+    textElement.style.top = '50%';
+    textElement.style.left = '50%';
+    textElement.style.transform = 'translate(-50%, -50%)';
 
-        // Append text element to overlay
-        overlay.appendChild(textElement);
+    // Append text element to overlay
+    overlay.appendChild(textElement);
 
-        // Create element for linear loading bar
-        var linearLoadingBar = document.createElement('div');
-        linearLoadingBar.classList.add('mdc-linear-progress');
-        linearLoadingBar.style.position = 'absolute';
-        linearLoadingBar.style.top = '60%';
-        linearLoadingBar.style.left = '50%';
-        linearLoadingBar.style.transform = 'translateX(-50%)';
-        linearLoadingBar.setAttribute('role', 'progressbar');
-        linearLoadingBar.setAttribute('aria-label', 'Loading...');
-        linearLoadingBar.setAttribute('aria-valuemin', '0');
-        linearLoadingBar.setAttribute('aria-valuemax', '1');
+    // Append overlay to body
+    document.body.appendChild(overlay);
 
-        // Create buffer bar for the linear loading bar
-        var bufferBar = document.createElement('div');
-        bufferBar.classList.add('mdc-linear-progress__buffer');
-        linearLoadingBar.appendChild(bufferBar);
+    // Create element for image overlay
+    var imageOverlay = document.createElement('img');
+    imageOverlay.src = 'https://online.vinschool.edu.vn/static/media/loginbg.73ec9217b389d5f9aacf.jpeg';
+    imageOverlay.style.position = 'fixed';
+    imageOverlay.style.top = '0';
+    imageOverlay.style.left = '0';
+    imageOverlay.style.width = '100%';
+    imageOverlay.style.height = '100%';
+    imageOverlay.style.objectFit = 'cover';
+    imageOverlay.style.zIndex = '9998';
 
-        // Create primary bar for the linear loading bar
-        var primaryBar = document.createElement('div');
-        primaryBar.classList.add('mdc-linear-progress__bar', 'mdc-linear-progress__primary-bar');
-        linearLoadingBar.appendChild(primaryBar);
-
-        // Append linear loading bar to overlay
-        overlay.appendChild(linearLoadingBar);
-
-        // Append overlay to body
-        document.body.appendChild(overlay);
-
-        // Initialize linear loading bar component
-        var linearProgress = new mdc.linearProgress.MDCLinearProgress(linearLoadingBar);
+    // Append image overlay to body
+    document.body.appendChild(imageOverlay);
 
     function clickButton() {
         var button = document.evaluate(
@@ -173,8 +140,8 @@
 
     function addTitlePrefix(prefix) {
         var pageTitle = document.title;
-        var newTitle = prefix + ' - ' + pageTitle;
         // check if on lms v2 to not have duplicate titles
+        var newTitle = prefix + ' - ' + pageTitle;
         if (pageTitle == "Vinschool LMS") {
             newTitle = "Vinschool LMS v2"
         }
