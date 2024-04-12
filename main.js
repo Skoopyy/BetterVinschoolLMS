@@ -1,12 +1,10 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
-// @name:vn      Cải thiện LMS Vinschool
 // @namespace    http://tampermonkey.net/
-// @version      1.2.3 r1
+// @version      1.2.4
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
-// @description:vn Cải thiện UI của hệ thống LMS Vinschool
 // @author       Skoopyy on Github
 // @match        https://online.vinschool.edu.vn/*
 // @match        https://lms.vinschool.edu.vn/courses/16327
@@ -17,6 +15,58 @@
 
 (function() {
     'use strict';
+
+    // Add CSS styles for the snackbar
+    var styles = `
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    `;
+    var styleElement = document.createElement('style');
+    styleElement.textContent = styles;
+    document.head.appendChild(styleElement);
+
+    // Create snackbar element
+    var snackbar = document.createElement('div');
+    snackbar.id = 'snackbar';
+    snackbar.textContent = 'Some text some message..';
+    document.body.appendChild(snackbar);
+
+    // Function to show the snackbar
+    function showSnackbar(text) {
+        snackbar.textContent = text;
+        snackbar.classList.add('show');
+        setTimeout(function() {
+            snackbar.classList.remove('show');
+        }, 3000);
+    }
 
     // Check if the current URL matches the specified pattern - URL
     function checkURL(pattern) {
@@ -127,6 +177,7 @@
         loadingMessage.style.color = 'rgba(0, 0, 0, 0.5)';
         loadingMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         document.body.appendChild(loadingMessage);
+        showSnackbar("Redirecting to dashboard...");
 
         // Hide main content while loading
         document.body.style.opacity = '0.5'; // Reduce opacity
