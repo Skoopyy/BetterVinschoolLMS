@@ -1,19 +1,41 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    http://tampermonkey.net/
-// @version      1.2.1
+// @version      1.2.3
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
 // @author       Skoopyy on Github
 // @match        https://online.vinschool.edu.vn/*
+// @match        https://lms.vinschool.edu.vn/courses/16327
 // @match        https://lms.vinschool.edu.vn/*
 // @icon         https://online.vinschool.edu.vn/logo1.svg
-// @grant        none
+// @grant        GM_addStyle
+// @grant        GM_getResourceText
+// @grant        unsafeWindow
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    // Function to load external script
+    function loadScript(url) {
+        var script = document.createElement('script');
+        script.src = url;
+        document.head.appendChild(script);
+    }
+
+    // Function to load external style
+    function loadStyle(url) {
+        var style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = url;
+        document.head.appendChild(style);
+    }
+
+    // Load Material Components for the Web library
+    loadScript('https://unpkg.com/@material/linear-progress@5.3.0/dist/mdc.linearProgress.min.js');
+    loadStyle('https://unpkg.com/@material/linear-progress@5.3.0/dist/mdc.linearProgress.min.css');
 
     // Check if the current URL matches the specified pattern - URL
     function checkURL(pattern) {
