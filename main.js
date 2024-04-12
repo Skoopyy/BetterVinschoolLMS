@@ -4,6 +4,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
+// @downloadURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
 // @description:vn Cải thiện UI của hệ thống LMS Vinschool
 // @author       Skoopyy on Github
