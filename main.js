@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      1.2.5
+// @version      1.3
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -166,7 +166,6 @@
     if (document.evaluate('//*[@id="unauthorized_message"]/h1', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue) {
         // Create loading message element
         var loadingMessage = document.createElement('div');
-        loadingMessage.innerText = 'Loading...';
         loadingMessage.style.position = 'fixed';
         loadingMessage.style.top = '50%';
         loadingMessage.style.left = '50%';
