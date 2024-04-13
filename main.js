@@ -1,13 +1,12 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
 // @version      1.2.5
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
 // @author       Skoopyy on Github
 // @match        https://online.vinschool.edu.vn/*
-// @match        https://lms.vinschool.edu.vn/courses/16327
 // @match        https://lms.vinschool.edu.vn/*
 // @icon         https://online.vinschool.edu.vn/logo1.svg
 // @grant        none
@@ -56,7 +55,7 @@
     // Create snackbar element
     var snackbar = document.createElement('div');
     snackbar.id = 'snackbar';
-    snackbar.textContent = 'Some text some message..';
+    snackbar.textContent = 'No text provided.';
     document.body.appendChild(snackbar);
 
     // Function to show the snackbar
