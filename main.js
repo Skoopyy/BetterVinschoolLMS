@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    http://tampermonkey.net/
-// @version      1.2.4
+// @version      1.2.5
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -26,7 +26,7 @@
             color: #fff;
             text-align: center;
             border-radius: 2px;
-            padding: 16px;
+            padding: 5px;
             position: fixed;
             z-index: 9999;
             left: 50%;
@@ -163,10 +163,10 @@
 
 
 
-    // If on Courses/16327, redirect to dashboard
-    if (checkURL('https://lms.vinschool.edu.vn/courses/16327')) {
-    // Create loading message element
-    var loadingMessage = document.createElement('div');
+    // If unauthorized message element is detected, execute actions
+    if (document.evaluate('//*[@id="unauthorized_message"]/h1', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue) {
+        // Create loading message element
+        var loadingMessage = document.createElement('div');
         loadingMessage.innerText = 'Loading...';
         loadingMessage.style.position = 'fixed';
         loadingMessage.style.top = '50%';
