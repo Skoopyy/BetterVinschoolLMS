@@ -5,3 +5,5 @@
 - Auto Login on "online.vinschool.edu.vn/login"
 - Better Page Titles
 - more to come....
+## Features coming:
+- Timetable integration with Canvas LMS
