@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      1.3
+// @version      1.4
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -190,9 +190,9 @@
     function addTitlePrefix(prefix) {
         var pageTitle = document.title;
         // check if on lms v2 to not have duplicate titles
-        var newTitle = prefix + ' - ' + pageTitle;
+        var newTitle = pageTitle + ' - ' + prefix;
         if (pageTitle == "Vinschool LMS") {
-            newTitle = "Vinschool LMS v2"
+            newTitle = "Vinschool LMS (version 2)"
         }
         document.title = newTitle;
         console.log("Better VSC LMS | Changed webpage title to: " + newTitle);
@@ -201,7 +201,7 @@
     // If on dashboard, do UI/UX improvements
     if (checkURL('https://lms.vinschool.edu.vn/')) {
         console.log("Better VSC LMS | Loaded...");
-        // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn
+        // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn - conflicts with submenus on sidebar
     }
     addTitlePrefix("Vinschool LMS");
 })();
