@@ -14,6 +14,14 @@
 
 (function() {
     'use strict';
+    // Wait func
+    function wait(ms){
+        var start = new Date().getTime();
+        var end = start;
+        while(end < start + ms) {
+          end = new Date().getTime();
+       }
+     }
 
     // Add CSS styles for the snackbar
     var styles = `
@@ -192,7 +200,10 @@
         // check if on lms v2 to not have duplicate titles
         var newTitle = pageTitle + ' - ' + prefix;
         if (pageTitle == "Vinschool LMS") {
-            newTitle = "Vinschool LMS (version 2)"
+            wait(5000);
+            if (pageTitle == "Vinschool LMS") {
+                newTitle = "Vinschool LMS (version 2)"
+            }
         }
         document.title = newTitle;
         console.log("Better VSC LMS | Changed webpage title to: " + newTitle);
