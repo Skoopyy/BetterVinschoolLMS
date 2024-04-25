@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      1.4
+// @version      2.0 BETA
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -9,11 +9,15 @@
 // @match        https://online.vinschool.edu.vn/*
 // @match        https://lms.vinschool.edu.vn/*
 // @icon         https://online.vinschool.edu.vn/logo1.svg
-// @grant        none
+// @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    var authorizationToken = "
+    Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InRva2VuX2lkIjoiNjYyYTY2ZGIzNTAxOGUwODZjOGIzMzlkIn0sImlhdCI6MTcxNDA1Njc5MywiZXhwIjoxNzE0MDU4NTkzfQ.93P-gstw0-OrguYKkYA-2UidF7YxJkV9v6Gr75uRFx4";
+
     // Wait func
     function wait(ms){
         var start = new Date().getTime();
@@ -214,5 +218,49 @@
         console.log("Better VSC LMS | Loaded...");
         // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn - conflicts with submenus on sidebar
     }
-    addTitlePrefix("Vinschool LMS");
+
+    // Timetable func
+     // Check if the current page URL matches the specified URL
+     if (window.location.href.startsWith("https://lms.vinschool.edu.vn/")) {
+        // Get today's date
+        var today = new Date();
+
+        // Format the date string
+        var formattedDate = today.toISOString();
+
+        // Construct the URL with the formatted date
+        var url = "https://online-backend.vinschool.edu.vn/schedule/yourschedule?date=" + encodeURIComponent(formattedDate);
+
+        // Define the headers
+        var headers = {
+            "accept": "application/json, text/plain, */*",
+            "accept-language": "en-US,en;q=0.9",
+            "authorization": authorizationToken,
+            "if-none-match": "W/\"6f6-bPV/4usaFw+WntlBFA6Nljk5hiE\"",
+            "priority": "u=1, i",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site",
+            "user-agent": navigator.userAgent // Include the user agent in the headers
+        };
+
+        // Make the fetch request
+        GM_xmlhttpRequest({
+            method: "GET",
+            url: url,
+            headers: headers,
+            onload: function(response) {
+                console.log(response.responseText); // Log the response to console
+                // You can process the response data here
+                if (response.responseText.includes("invalid token")) {
+                    console.log('invalid token');
+                }
+            },
+            onerror: function(error) {
+                console.error('Error fetching timetable:', error);
+            }
+        });
+    }
 })();
