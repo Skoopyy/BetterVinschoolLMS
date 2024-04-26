@@ -15,8 +15,6 @@
 (function() {
     'use strict';
 
-    var authorizationToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InRva2VuX2lkIjoiNjYyYTY2ZGIzNTAxOGUwODZjOGIzMzlkIn0sImlhdCI6MTcxNDA1Njc5MywiZXhwIjoxNzE0MDU4NTkzfQ.93P-gstw0-OrguYKkYA-2UidF7YxJkV9v6Gr75uRFx4";
-
     // Wait func
     function wait(ms){
         var start = new Date().getTime();
