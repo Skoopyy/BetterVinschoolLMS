@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      2.0 BETA
+// @version      2.0 BETA wip
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -15,8 +15,7 @@
 (function() {
     'use strict';
 
-    var authorizationToken = "
-    Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InRva2VuX2lkIjoiNjYyYTY2ZGIzNTAxOGUwODZjOGIzMzlkIn0sImlhdCI6MTcxNDA1Njc5MywiZXhwIjoxNzE0MDU4NTkzfQ.93P-gstw0-OrguYKkYA-2UidF7YxJkV9v6Gr75uRFx4";
+    var authorizationToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InRva2VuX2lkIjoiNjYyYTY2ZGIzNTAxOGUwODZjOGIzMzlkIn0sImlhdCI6MTcxNDA1Njc5MywiZXhwIjoxNzE0MDU4NTkzfQ.93P-gstw0-OrguYKkYA-2UidF7YxJkV9v6Gr75uRFx4";
 
     // Wait func
     function wait(ms){
