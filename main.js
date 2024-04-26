@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      2.0 BETA wip
+// @version      2.1
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -218,48 +218,5 @@
         // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn - conflicts with submenus on sidebar
     }
 
-    // Timetable func
-     // Check if the current page URL matches the specified URL
-     if (window.location.href.startsWith("https://lms.vinschool.edu.vn/")) {
-        // Get today's date
-        var today = new Date();
-
-        // Format the date string
-        var formattedDate = today.toISOString();
-
-        // Construct the URL with the formatted date
-        var url = "https://online-backend.vinschool.edu.vn/schedule/yourschedule?date=" + encodeURIComponent(formattedDate);
-
-        // Define the headers
-        var headers = {
-            "accept": "application/json, text/plain, */*",
-            "accept-language": "en-US,en;q=0.9",
-            "authorization": authorizationToken,
-            "if-none-match": "W/\"6f6-bPV/4usaFw+WntlBFA6Nljk5hiE\"",
-            "priority": "u=1, i",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Windows\"",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-site",
-            "user-agent": navigator.userAgent // Include the user agent in the headers
-        };
-
-        // Make the fetch request
-        GM_xmlhttpRequest({
-            method: "GET",
-            url: url,
-            headers: headers,
-            onload: function(response) {
-                console.log(response.responseText); // Log the response to console
-                // You can process the response data here
-                if (response.responseText.includes("invalid token")) {
-                    console.log('invalid token');
-                }
-            },
-            onerror: function(error) {
-                console.error('Error fetching timetable:', error);
-            }
-        });
-    }
+    // Timetable func (being recoded)
 })();
