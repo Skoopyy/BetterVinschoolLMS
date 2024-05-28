@@ -212,6 +212,13 @@
     // If on dashboard, do UI/UX improvements
     if (checkURL('https://lms.vinschool.edu.vn/')) {
         console.log("Better VSC LMS | Loaded...");
+        var scriptToReplace = document.querySelector('script[src="https://lms-file-storage.s3.ap-southeast-1.amazonaws.com/account_1/attachments/16227447/lms_vin24_03_06_prod.js"]');
+        if (scriptToReplace) {
+            var newScript = document.createElement('script');
+            newScript.src = 'https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/modifiedfrontend.js';
+            scriptToReplace.parentNode.replaceChild(newScript, scriptToReplace);
+            console.log("Better VSC LMS | Replaced front end script");
+        }
         // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn - conflicts with submenus on sidebar
     }
 
