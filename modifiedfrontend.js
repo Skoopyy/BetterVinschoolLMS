@@ -23,6 +23,7 @@ $('#menu').append('<li class="menu-item ic-app-header__menu-list-item ">\n' +
 //     '            </a>\n' +
 //     '          </li>');
 
+console.log('Modified Frontend JavaScript script loaded successfully - Modified by Better VSC LMS');
 
 //$('#menu').append('<li class="menu-item ic-app-header__menu-list-item ">\n' +
  //   '            <a id="global_nav_conversations_link" href="https://swb.vinschool.edu.vn/login?type=google" class="ic-app-header__menu-list-link" target="_blank">\n' +
@@ -91,39 +92,6 @@ if (typeof (params) != 'undefined' && params.length > 0) {
     addButtonMobile();
 }
 
-
-
-// addButtonMobile()
-function addLiveClassDesktop() {
-    $('.ic-Login__body #login_form').append('<a id="live_class_btn" style="border-radius: 5px;background: #d7a11f;background: -moz-linear-gradient(top, #d7a11f 0%, #d69500 100%);background: -webkit-linear-gradient(top, #d7a11f 0%,#d69500 100%);background: linear-gradient(to bottom, #d7a11f 0%,#d69500 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#d7a11f\', endColorstr=\'#d69500\',GradientType=0 ); width: 30%;margin: 0 auto;" href="https://calendar.google.com/" class="ic-app-header__menu-list-link" target="_blank">\n' +
-        '              <div class="menu-item-icon-container">\n' +
-        '                <span aria-hidden="true"><svg class="ic-icon-svg ic-icon-svg--dashboard" style="width: 50px;height: 50px" enable-background="new 0 0 60 58" height="512" viewBox="0 0 60 58" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m30 26c-.146 0-.291-.032-.426-.095l-17-8c-.35-.165-.574-.518-.574-.905s.224-.74.574-.905l17-8c.27-.127.582-.127.852 0l17 8c.35.165.574.518.574.905s-.224.74-.574.905l-17 8c-.135.063-.28.095-.426.095zm-14.651-9 14.651 6.895 14.651-6.895-14.651-6.895z"/><path d="m30 34c-.153 0-.307-.035-.447-.105l-12-6c-.339-.17-.553-.516-.553-.895v-7.647c0-.342.175-.661.464-.844.289-.184.652-.205.961-.061l11.575 5.447 11.574-5.447c.31-.145.673-.123.961.061.29.183.465.502.465.844v7.647c0 .379-.214.725-.553.895l-12 6c-.14.07-.294.105-.447.105zm-11-7.618 11 5.5 11-5.5v-5.453l-10.574 4.976c-.27.127-.582.127-.852 0l-10.574-4.976z"/><path d="m47 18h-17c-.552 0-1-.448-1-1s.448-1 1-1h17c.552 0 1 .448 1 1s-.448 1-1 1z"/><path d="m47 27c-.552 0-1-.448-1-1v-9c0-.552.448-1 1-1s1 .448 1 1v9c0 .552-.448 1-1 1z"/><path d="m30 20c-.552 0-1-.448-1-1v-4c0-.552.448-1 1-1s1 .448 1 1v4c0 .552-.448 1-1 1z"/><path d="m44.999 30c-.19 0-.383-.054-.554-.168-.459-.306-.583-.927-.277-1.387l2-3c.306-.46.926-.585 1.387-.277.459.306.583.927.277 1.387l-2 3c-.193.289-.51.445-.833.445z"/><path d="m49.001 30c-.323 0-.64-.156-.833-.445l-2-3c-.306-.459-.182-1.081.277-1.387.459-.308 1.08-.183 1.387.277l2 3c.306.459.182 1.081-.277 1.387-.171.114-.364.168-.554.168z"/><path d="m30 29c-.552 0-1-.448-1-1v-3c0-.552.448-1 1-1s1 .448 1 1v3c0 .552-.448 1-1 1z"/><path d="m59 38h-58c-.552 0-1-.448-1-1v-32.999c0-2.206 1.795-4.001 4.001-4.001h51.998c2.206 0 4.001 1.795 4.001 4.001v32.999c0 .552-.448 1-1 1zm-57-2h56v-31.999c0-1.104-.897-2.001-2.001-2.001h-51.998c-1.104 0-2.001.897-2.001 2.001z"/><path d="m55.999 46h-51.998c-2.206 0-4.001-1.795-4.001-4.001v-4.999c0-.552.448-1 1-1h58c.552 0 1 .448 1 1v4.999c0 2.206-1.795 4.001-4.001 4.001zm-53.999-8v3.999c0 1.104.897 2.001 2.001 2.001h51.998c1.104 0 2.001-.897 2.001-2.001v-3.999z"/><path d="m33 42h-6c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1s-.448 1-1 1z"/><path d="m55 38h-50c-.552 0-1-.448-1-1v-32c0-.552.448-1 1-1h50c.552 0 1 .448 1 1v32c0 .552-.448 1-1 1zm-49-2h48v-30h-48z"/><path d="m43 58h-26c-1.654 0-3-1.346-3-3s1.346-3 3-3h26c1.654 0 3 1.346 3 3s-1.346 3-3 3zm-26-4c-.551 0-1 .449-1 1s.449 1 1 1h26c.551 0 1-.449 1-1s-.449-1-1-1z"/><path d="m41 54h-22c-.552 0-1-.448-1-1s.448-1 1-1c3.318 0 5-2.355 5-7 0-.552.448-1 1-1h10c.552 0 1 .448 1 1 0 4.645 1.682 7 5 7 .552 0 1 .448 1 1s-.448 1-1 1zm-17.129-2h12.259c-1.232-1.364-1.957-3.395-2.102-6h-8.055c-.146 2.605-.87 4.636-2.102 6z"/></svg>\n' +
-        '</span>\n' +
-        '              </div>\n' +
-        '              <div class="menu-item__text" style="font-weight: normal; font-size: 16px;">\n' +
-        '                LIVE CLASS\n' +
-        '              </div>\n' +
-        '            </a>' +
-		'<p style="text-align: center;"><span style="color:#ffffff;font-size: 17px; font-weight: normal;">Äá»ƒ lÃ m <strong style="color:#ffffff;font-size: 20px; font-weight: bold;">Ä‘á» thi thá»­</strong> há»c sinh click vÃ o <a style="color:#ffffff;font-size: 20px; font-weight: bold;" href="https://lms.vinschool.edu.vn/search/all_courses/"><strong>ÄÃ¢y</strong></a></span></p>'+
-        '<p style="text-align: center;"><span style="color:#ffffff;font-size: 17px; font-weight: normal;"></strong><a style="color:#ffffff;font-size: 20px; font-weight: bold;" href="https://sites.google.com/vinschool.edu.vn/vinschool/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%E1%BA%A5p-l%E1%BA%A1i-m%E1%BA%ADt-kh%E1%BA%A9u-t%C3%A0i-kho%E1%BA%A3n-google"><strong>QuÃªn máº­t kháº©u?</strong></a></span></p>'
-        );
-}
-// addLiveClassDesktop();
-function addLiveClassMobile() {
-    $('#f1_card #login_form').append('<a href="https://lms.vinschool.edu.vn/login/apple" style="padding-top:10px;"><img src="https://webhook.vinschool.edu.vn/dist/appleid.png"/></a>');
-
-    $('#f1_card #login_form').append('<a id="global_nav_conversations_link" style="border-radius: 5px;background: #d7a11f;background: -moz-linear-gradient(top, #d7a11f 0%, #d69500 100%);background: -webkit-linear-gradient(top, #d7a11f 0%,#d69500 100%);background: linear-gradient(to bottom, #d7a11f 0%,#d69500 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#d7a11f\', endColorstr=\'#d69500\',GradientType=0 ); width: 40%;margin: 0 auto;margin-top: 25px;" href="https://calendar.google.com/" class="ic-app-header__menu-list-link" target="_blank">\n' +
-        '              <div class="menu-item-icon-container">\n' +
-        '                <span aria-hidden="true"><svg class="ic-icon-svg ic-icon-svg--dashboard" style="width: 50px;height: 50px" enable-background="new 0 0 60 58" height="512" viewBox="0 0 60 58" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m30 26c-.146 0-.291-.032-.426-.095l-17-8c-.35-.165-.574-.518-.574-.905s.224-.74.574-.905l17-8c.27-.127.582-.127.852 0l17 8c.35.165.574.518.574.905s-.224.74-.574.905l-17 8c-.135.063-.28.095-.426.095zm-14.651-9 14.651 6.895 14.651-6.895-14.651-6.895z"/><path d="m30 34c-.153 0-.307-.035-.447-.105l-12-6c-.339-.17-.553-.516-.553-.895v-7.647c0-.342.175-.661.464-.844.289-.184.652-.205.961-.061l11.575 5.447 11.574-5.447c.31-.145.673-.123.961.061.29.183.465.502.465.844v7.647c0 .379-.214.725-.553.895l-12 6c-.14.07-.294.105-.447.105zm-11-7.618 11 5.5 11-5.5v-5.453l-10.574 4.976c-.27.127-.582.127-.852 0l-10.574-4.976z"/><path d="m47 18h-17c-.552 0-1-.448-1-1s.448-1 1-1h17c.552 0 1 .448 1 1s-.448 1-1 1z"/><path d="m47 27c-.552 0-1-.448-1-1v-9c0-.552.448-1 1-1s1 .448 1 1v9c0 .552-.448 1-1 1z"/><path d="m30 20c-.552 0-1-.448-1-1v-4c0-.552.448-1 1-1s1 .448 1 1v4c0 .552-.448 1-1 1z"/><path d="m44.999 30c-.19 0-.383-.054-.554-.168-.459-.306-.583-.927-.277-1.387l2-3c.306-.46.926-.585 1.387-.277.459.306.583.927.277 1.387l-2 3c-.193.289-.51.445-.833.445z"/><path d="m49.001 30c-.323 0-.64-.156-.833-.445l-2-3c-.306-.459-.182-1.081.277-1.387.459-.308 1.08-.183 1.387.277l2 3c.306.459.182 1.081-.277 1.387-.171.114-.364.168-.554.168z"/><path d="m30 29c-.552 0-1-.448-1-1v-3c0-.552.448-1 1-1s1 .448 1 1v3c0 .552-.448 1-1 1z"/><path d="m59 38h-58c-.552 0-1-.448-1-1v-32.999c0-2.206 1.795-4.001 4.001-4.001h51.998c2.206 0 4.001 1.795 4.001 4.001v32.999c0 .552-.448 1-1 1zm-57-2h56v-31.999c0-1.104-.897-2.001-2.001-2.001h-51.998c-1.104 0-2.001.897-2.001 2.001z"/><path d="m55.999 46h-51.998c-2.206 0-4.001-1.795-4.001-4.001v-4.999c0-.552.448-1 1-1h58c.552 0 1 .448 1 1v4.999c0 2.206-1.795 4.001-4.001 4.001zm-53.999-8v3.999c0 1.104.897 2.001 2.001 2.001h51.998c1.104 0 2.001-.897 2.001-2.001v-3.999z"/><path d="m33 42h-6c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1s-.448 1-1 1z"/><path d="m55 38h-50c-.552 0-1-.448-1-1v-32c0-.552.448-1 1-1h50c.552 0 1 .448 1 1v32c0 .552-.448 1-1 1zm-49-2h48v-30h-48z"/><path d="m43 58h-26c-1.654 0-3-1.346-3-3s1.346-3 3-3h26c1.654 0 3 1.346 3 3s-1.346 3-3 3zm-26-4c-.551 0-1 .449-1 1s.449 1 1 1h26c.551 0 1-.449 1-1s-.449-1-1-1z"/><path d="m41 54h-22c-.552 0-1-.448-1-1s.448-1 1-1c3.318 0 5-2.355 5-7 0-.552.448-1 1-1h10c.552 0 1 .448 1 1 0 4.645 1.682 7 5 7 .552 0 1 .448 1 1s-.448 1-1 1zm-17.129-2h12.259c-1.232-1.364-1.957-3.395-2.102-6h-8.055c-.146 2.605-.87 4.636-2.102 6z"/></svg>\n' +
-        '</span>\n' +
-        '              </div>\n' +
-        '              <div class="" style="font-weight: normal; font-size: 16px">\n' +
-        '                LIVE CLASS\n' +
-        '              </div>\n' +
-        '            </a>' +
-		'<p style="text-align: center;"><span style="color:#333333;font-size: 17px; font-weight: normal;">Ä‘á» thi thá»­</strong> há»c sinh click vÃ o <a style="color:#000000;font-size: 20px; font-weight: bold;" href="https://lms.vinschool.edu.vn/search/all_courses/"><strong>ÄÃ¢y</strong></a></span></p>'+
-        '<p style="text-align: center;"><span style="color:#333333;font-size: 17px; font-weight: normal;"></strong><a style="color:#000000;font-size: 20px; font-weight: bold;" href="https://sites.google.com/vinschool.edu.vn/vinschool/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%E1%BA%A5p-l%E1%BA%A1i-m%E1%BA%ADt-kh%E1%BA%A9u-t%C3%A0i-kho%E1%BA%A3n-google"><strong>QuÃªn máº­t kháº©u?</strong></a></span></p>');
-}
 // addLiveClassMobile();
 function addButtonMobile() {
 	//$(document).ready(function() {$('#live_class_btn').remove();});
@@ -293,7 +261,7 @@ $(document).ready(function () {
             if(data.length >0){
                 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                     $(".display_question").css({display:'none'})
-                    alert('bÃ i thi nÃ y chá»‰ cÃ³ thá»ƒ lÃ m trÃªn mÃ¡y tÃ­nh')
+                    alert('Anticheat error')
                 }
 
                 $('#application').css({"background-color":"white"});
@@ -485,20 +453,18 @@ $(document).ready(function () {
 
     if(window.location.href.includes('login/oauth2/confirm')){
         $("#application").hide()
-        $("body").css("background-image","url('https://lms-file-storage.s3.ap-southeast-1.amazonaws.com/account_1/attachments/8434816/VSC%20BG.jpg')")
         $("#accept_signin").click()
     }
     if( !window.location.href.includes("login/oauth2/confirm") && !window.location.href.includes("quizzes/") && self == top){
         if(ENV && ENV.current_user && ENV.current_user.id ){
             $("#application").hide()
-            $("body").css("background-image","url('https://lms-file-storage.s3.ap-southeast-1.amazonaws.com/account_1/attachments/8434816/VSC%20BG.jpg')")
             $.get(`https://online-backend.vinschool.edu.vn/user/checkVersion2?userId=${ENV.current_user.id}&url=${window.location.href}`).done(function(data){
                 if(data.v2){
                     if(data.v2Url){
                         // window.location.href = data.v2Url
                         window.location.href=`https://online.vinschool.edu.vn/login/1?lmsV2Url=${data.v2Url}`   
                         //  window.location.href=`http://localhost:3000/login/1?lmsV2Url=${data.v2Url}` 
-                    }else{
+                    } else {
                         window.location.href=`https://online.vinschool.edu.vn/login/1`
                         // window.location.href=`http://localhost:3000/login/1`
                     }
@@ -873,65 +839,6 @@ if(quizlist){
         window.print();
     }
 })();
-
-
-
-function chatbot(){
-
-        let __protocol = document.location.protocol;
-        let __baseUrl = __protocol + '//livechat.fpt.ai/v35/src';
-
-        let prefixNameLiveChat = 'LMS Support';
-        let objPreDefineLiveChat = {
-                appCode: '588e77a3dc645f2a991500b5e0f4e4cf',
-                themes: '',
-                appName: prefixNameLiveChat ? prefixNameLiveChat : 'Live support',
-                thumb: '',
-                icon_bot: 'http://lms.vinschool.edu.vn/logo-vsc/logo1.png'
-            },
-            appCodeHash = window.location.hash.substr(1);
-        if (appCodeHash.length == 32) {
-            objPreDefineLiveChat.appCode = appCodeHash;
-        }
-
-        let fpt_ai_livechat_script = document.createElement('script');
-        fpt_ai_livechat_script.id = 'fpt_ai_livechat_script';
-        fpt_ai_livechat_script.src = __baseUrl + '/static/fptai-livechat.js';
-        document.body.appendChild(fpt_ai_livechat_script);
-
-        let fpt_ai_livechat_stylesheet = document.createElement('link');
-        fpt_ai_livechat_stylesheet.id = 'fpt_ai_livechat_script';
-        fpt_ai_livechat_stylesheet.rel = 'stylesheet';
-        fpt_ai_livechat_stylesheet.href = __baseUrl + '/static/fptai-livechat.css';
-        document.body.appendChild(fpt_ai_livechat_stylesheet);
-        fpt_ai_livechat_script.onload = function () {
-            $.when(fpt_ai_render_chatbox(objPreDefineLiveChat, __baseUrl, 'livechat.fpt.ai:443')).then(()=>{
-                if($('#fpt_ai_livechat_button').length){
-                    $('#fpt_ai_livechat_button').empty()
-                    $('#fpt_ai_livechat_button').append("<img src='https://online.vinschool.edu.vn/static/media/logo2.24dd5b9e0ae8f70ed74b007b0670ab2f.svg' />")
-
-                }
-
-
-            })
-
-
-
-        }
-
-
-
-
-
-
-
-}
-if(self==top){
-    chatbot()
-}
-
-
-
 
 
 googleAnalyticsCode("UA-158150881-6") // replace google analytics tracking id here
