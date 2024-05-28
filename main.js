@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      2.1
+// @version      2.1.1
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -132,9 +132,6 @@
     imageOverlay.style.objectFit = 'cover';
     imageOverlay.style.zIndex = '9998';
 
-    // Append image overlay to body
-    document.body.appendChild(imageOverlay);
-
     function clickButton() {
         var button = document.evaluate(
             '//*[@id="root"]/div/div/div/button[1]',
@@ -146,6 +143,8 @@
 
         if (button) {
             // Show logging in overlay when login func called
+            // append img overlay
+            document.body.appendChild(imageOverlay);
             console.log("Better VSC LMS | Logging in...");
             overlay.style.display = 'block';
             button.click();
@@ -171,7 +170,7 @@
 
 
 
-    // If unauthorized message element is detected, execute actions
+    // handle unauthorized msg
     if (document.evaluate('//*[@id="unauthorized_message"]/h1', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue) {
         // Create loading message element
         var loadingMessage = document.createElement('div');
@@ -196,7 +195,7 @@
         }, 0.5);
     }
 
-    function addTitlePrefix(prefix) {
+    function addTitlePrefixUtil(prefix) {
         var pageTitle = document.title;
         // check if on lms v2 to not have duplicate titles
         var newTitle = pageTitle + ' - ' + prefix;
@@ -217,4 +216,7 @@
     }
 
     // Timetable func (being recoded)
+
+    // title prefix
+    addTitlePrefixUtil('Vinschool LMS');
 })();
