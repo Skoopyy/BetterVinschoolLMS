@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      3
+// @version      3.0.1
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -215,7 +215,7 @@
         var scriptToReplace = document.querySelector('script[src="https://lms-file-storage.s3.ap-southeast-1.amazonaws.com/account_1/attachments/16227447/lms_vin24_03_06_prod.js"]');
         if (scriptToReplace) {
             var newScript = document.createElement('script');
-            newScript.src = 'https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/modifiedfrontend.js';
+            newScript.src = 'https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/modifiedfrontend.js';  // DOESNT FUCKING WORK FOR SOME REASON
             scriptToReplace.parentNode.replaceChild(newScript, scriptToReplace);
             console.log("Better VSC LMS | Replaced front end script");
         }
