@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      3.0.1
+// @version      3.0.2
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -212,12 +212,13 @@
     // If on dashboard, do UI/UX improvements
     if (checkURL('https://lms.vinschool.edu.vn/')) {
         console.log("Better VSC LMS | Loaded...");
-        var scriptToReplace = document.querySelector('script[src="https://lms-file-storage.s3.ap-southeast-1.amazonaws.com/account_1/attachments/16227447/lms_vin24_03_06_prod.js"]');
-        if (scriptToReplace) {
-            var newScript = document.createElement('script');
-            newScript.src = 'https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/modifiedfrontend.js';  // DOESNT FUCKING WORK FOR SOME REASON
-            scriptToReplace.parentNode.replaceChild(newScript, scriptToReplace);
-            console.log("Better VSC LMS | Replaced front end script");
+        // Delete element with image source containing "VSC BG.png"
+        var images = document.getElementsByTagName('img');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].src.includes('VSC%20BG.png')) {
+                images[i].parentNode.removeChild(images[i]);
+                console.log("Better VSC LMS | Deleted element with VSC BG.png");
+            }
         }
         // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn - conflicts with submenus on sidebar
     }
