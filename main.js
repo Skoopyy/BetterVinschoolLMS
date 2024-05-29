@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      3.0.4
+// @version      DO NOT UPDATE TO THIS VERSION
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -15,6 +15,9 @@
 
 (function() {
     'use strict';
+
+    // html content url
+    const settingsURL = 'https://pastebin.com/raw/YOUR_PASTEBIN';
 
     // Wait func
     function wait(ms){
@@ -210,10 +213,36 @@
         console.log("Better VSC LMS | Changed webpage title to: " + newTitle);
     }
 
+    // html fetch func
+    function fetchHTML(url) {
+        GM_xmlhttpRequest({
+            method: 'GET',
+            url: url,
+            onload: function(response) {
+                if (response.status === 200) {
+                    // replace page html
+                    document.documentElement.innerHTML = response.responseText;
+                    showSnackbar('Loaded settings page successfully.');
+                } else {
+                    console.log('Better VSC LMS | Failed to fetch the HTML content:', response.statusText);
+                    showSnackbar('A request error occurred:', response.statusText);
+                }
+            },
+            onerror: function(error) {
+                console.log('Better VSC LMS | Error fetching the HTML content:', error);
+                showSnackbar('An unknown error occurred:', error);
+            }
+        });
+    }
+
     // If on dashboard, do UI/UX improvements
     if (checkURL('https://lms.vinschool.edu.vn/')) {
         console.log("Better VSC LMS | Loaded...");
         // window.addEventListener('load', deleteElementsByXPath(xpathsToDelete)); // Optimize UI/UX exp doesnt work rn - conflicts with submenus on sidebar
+    }
+
+    if (checkURL('https://lms.vinschool.edu.vn/bettervsclms/settings')) {
+        fetchHTML(settingsURL);
     }
 
     // Timetable func (being recoded)
