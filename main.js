@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Vinschool LMS
 // @namespace    https://github.com/Skoopyy/BetterVinschoolLMS
-// @version      3.0.3
+// @version      3.0.4
 // @updateURL    https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @downloadURL  https://raw.githubusercontent.com/Skoopyy/BetterVinschoolLMS/main/main.js
 // @description  General UI/UX Improvements for the Vinschool LMS (Canvas LMS/LMS version 1)
@@ -15,13 +15,6 @@
 
 (function() {
     'use strict';
-    // Block requests
-    GM_webRequest([
-        {
-            selector: "*://lms-file-storage.s3.ap-southeast-1.amazonaws.com/account_1/attachments/8434816/VSC%20BG.jpg",
-            action: "cancel"
-        }
-    ]);
 
     // Wait func
     function wait(ms){
